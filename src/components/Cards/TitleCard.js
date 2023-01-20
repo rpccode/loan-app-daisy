@@ -13,7 +13,7 @@ function TitleCard({ title, children, topMargin, TopSideButtons }) {
                 {
                     TopSideButtons && <div className="inline-block float-right">{TopSideButtons}</div>
                 }
-                <p className="inline-block float-right" >C#: <span className="text-primary">1</span></p>
+
 
             </Subtitle>
             <div className="divider mt-2"></div>

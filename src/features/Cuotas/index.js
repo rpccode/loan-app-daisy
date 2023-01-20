@@ -4,7 +4,7 @@ import TitleCard from "../../components/Cards/TitleCard"
 import { showNotification } from "../common/headerSlice"
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 
-const INITIAL_INTEGRATION_LIST = [
+const INITIAL_Cuotas_LIST = [
     { name: "Juan ramon Perez", icon: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200", isActive: true, description: "urbanizacion miraflores santiago sectores." },
     { name: "Facebook", icon: "https://cdn-icons-png.flaticon.com/512/124/124010.png", isActive: false, description: "Meta Platforms, Inc., doing business as Meta and formerly named Facebook, Inc., and TheFacebook." },
     { name: "Linkedin", icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png", isActive: true, description: "LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps." },
@@ -15,20 +15,20 @@ const INITIAL_INTEGRATION_LIST = [
 ]
 
 
-function Integration() {
+function Cuotas() {
 
     const dispatch = useDispatch()
 
-    const [integrationList, setIntegrationList] = useState(INITIAL_INTEGRATION_LIST)
+    const [CuotasList, setCuotasList] = useState(INITIAL_Cuotas_LIST)
 
 
-    const updateIntegrationStatus = (index) => {
-        let integration = integrationList[index]
-        setIntegrationList(integrationList.map((i, k) => {
+    const updateCuotasStatus = (index) => {
+        let Cuotas = CuotasList[index]
+        setCuotasList(CuotasList.map((i, k) => {
             if (k === index) return { ...i, isActive: !i.isActive }
             return i
         }))
-        dispatch(showNotification({ message: `${integration.name} ${integration.isActive ? "disabled" : "enabled"}`, status: 1 }))
+        dispatch(showNotification({ message: `${Cuotas.name} ${Cuotas.isActive ? "disabled" : "enabled"}`, status: 1 }))
     }
 
 
@@ -36,9 +36,10 @@ function Integration() {
         <>
             <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
                 {
-                    integrationList.map((i, k) => {
+                    CuotasList.map((i, k) => {
                         return (
                             <TitleCard key={k} title={i.name} topMargin={"mt-2"}>
+
                                 <div className="flex">
                                     <BanknotesIcon className='w-20 h-20 inline-block mr-4 text-green-400' />
                                     <div>
@@ -68,7 +69,7 @@ function Integration() {
 
                                 </div>
                                 {/* <div className="mt-6 text-right">
-                                    <input type="checkbox" className="toggle toggle-success toggle-lg" checked={i.isActive} onChange={() => updateIntegrationStatus(k)} />
+                                    <input type="checkbox" className="toggle toggle-success toggle-lg" checked={i.isActive} onChange={() => updateCuotasStatus(k)} />
                                 </div> */}
                                 <div className="dropdown dropdown-top dropdown-end  flex justify-end">
                                     <label tabIndex={0} className="btn btn-primary m-1 ">Pagar</label>
@@ -90,4 +91,4 @@ function Integration() {
     )
 }
 
-export default Integration
+export default Cuotas
